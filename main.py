@@ -53,8 +53,8 @@ load_user_data()
 pending_requests = set()
 
 # Admin credentials
-ADMIN_USERNAME = 'USERNAME'
-ADMIN_PASSWORD = 'PASSWORD'
+ADMIN_USERNAME = 'Nobita xd'
+ADMIN_PASSWORD = 'Raja khan'
 
 # ----------------- Running Tasks -----------------
 running_tasks = {}  

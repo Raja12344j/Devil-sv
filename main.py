@@ -8,8 +8,8 @@ app.secret_key = "your_secret_key_here"
 PENDING_FILE = "pending.json"
 APPROVED_FILE = "approved.json"
 
-ADMIN_USERNAME = "USERNAME"
-ADMIN_PASSWORD = "PASSWORD"
+ADMIN_USERNAME = "Nobita xd"
+ADMIN_PASSWORD = "Raja khan"
 
 
 def load_pending():

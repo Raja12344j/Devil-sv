@@ -45,31 +45,24 @@ def home():
 def approval_request():
     if request.method == "POST":
         username = request.form.get("name")
-
         pending = load_pending()
         uid = str(len(pending) + 1)
-
         pending[uid] = {"name": username}
         save_pending(pending)
-
         return "Approval request sent!"
     return render_template("approval_request.html")
 
-
-# ---------------- ADMIN SECTION ----------------
 
 @app.route("/admin/login", methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
         user = request.form.get("username")
         pw = request.form.get("password")
-
         if user == ADMIN_USERNAME and pw == ADMIN_PASSWORD:
             session["admin_logged_in"] = True
             return redirect("/admin/panel")
         else:
             return "Wrong admin username or password!"
-
     return render_template("admin_login.html")
 
 
@@ -78,7 +71,7 @@ def admin_panel():
     if "admin_logged_in" not in session:
         return redirect("/admin/login")
 
-    pending = load_pending()     # IMPORTANT FIX
+    pending = load_pending()
     approved = load_approved()
 
     return render_template("admin_panel.html",
@@ -130,7 +123,6 @@ def remove(uid):
     return redirect("/admin/panel")
 
 
-# ---------------------------------------------------
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
